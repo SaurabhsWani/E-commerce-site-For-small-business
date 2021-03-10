@@ -1,0 +1,10 @@
+RewriteEngine on
+RewriteRule ^eidjs?$ index.php
+RewriteRule ^icnel?$ register.php
+RewriteRule ^wibcd?$ tables.php
+RewriteRule ^augne?$ abtus.php
+RewriteRule ^aoinc?$ Navigation.php
+RewriteRule ^nmcxw?$ slider.php
+RewriteRule ^qewui?$ footer.php
+RewriteRule ^hjdas?$ gal.php
+RewriteRule ^kjvas?$ category.php
