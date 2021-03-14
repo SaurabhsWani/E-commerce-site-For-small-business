@@ -18,14 +18,10 @@ include('includes/header.php');
                   <th>Update Nav-Bar</th>
                   <th> Logo</th>
                   <th> Home</th>
-                  <th>Admin Login</th>
                   <th>Login</th>
                   <th>About</th>
                   <th>Gallary</th>
-                  <th>Certificate</th>
                   <th>Contact</th>
-                  <th>Recipe</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -41,13 +37,10 @@ include('includes/header.php');
                 </td>
                 <td> <?php echo "<div id='img_div'><img src='image/".$row['image']."' width=100px;height=100px;></div>";?></td>
                 <td><?php echo $row['h1'];?> </td>
-                <td><?php echo $row['h2'];?> </td>
                 <td><?php echo $row['h3'];?> </td>
                 <td><?php echo $row['h4'];?> </td>
                 <td><?php echo $row['h5'];?> </td>
-                <td><?php echo $row['h7'];?> </td>
                 <td><?php echo $row['h6'];?> </td>
-                <td><?php echo $row['h8'];?> </td>
               </tr>
               <?php         
             }

@@ -88,7 +88,11 @@ include('navbar.php');
 										<button type="submit" name="cart" value="<?php echo 'C'.$row['id'];?>" class="btn btn-icon btn-round <?php echo $cc?>">
 											<i class="fas fa-cart-plus"></i>
 										</button>
+										<?php if($row['noofpr'] > 0){?>
 										<button type="submit" name="buynow" value="<?php echo 'B'.$row['id'];?>" class="btn btn-sm btn-primary btn-border btn-round">Buy Now</button>
+									<?php }else{ ?>
+										<a href="#" class="btn btn-sm btn-danger btn-border btn-round">OutOfStock</a>
+									<?php } ?>
 									</form>
 									<!-- <a href="#" class="btn btn-primary btn-rounded btn-sm">Read More</a> -->
 								</div>

@@ -3,7 +3,7 @@ include('header.php');
 include('navbar.php');
 $bid=$_SESSION['usr']['bid'];
 $doc=$col->find([],
-	['sort'=>['DateTime'=>1]]);
+	['sort'=>['DateTime'=>-1]]);
 ?>
 <br/><br/>
 <div class="page-inner mt--5">	

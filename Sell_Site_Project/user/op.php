@@ -4,6 +4,7 @@ require('../admin/functions.php');
 $url=$_SERVER['HTTP_REFERER'];
 $bid=$_SESSION['usr']['bid'];
 $date=Date('m/d/Y h:i:s a',Time());
+$month=Date('M/Y',Time());
 function addtolist($col,$val,$bid){ 
 	$wcb=select("*","wishcartbuy","WHERE id='$bid'");
 	if (mysqli_num_rows($wcb)>0)
@@ -79,7 +80,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
 		$uname=$_POST['uname'];
 		$row=$_POST['prd'];
 		$count=$_POST['count'];
-		$TPrice=$_POST['count']*$row['price'];
+		$prdprice=$row['price'];
+		$TPrice=$_POST['count']*$prdprice;
 		$img=$row['image'];
 		$umob=$_POST['umob'];
 		$uemail=$_POST['uemail'];
@@ -95,8 +97,40 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
 		var_dump($insertone->getInsertedId());
 		if ($insertone->getInsertedCount()==1) 
 		{
-			//echo "success\n This is your Payment id ".$insertone->getInsertedId();
-			header('Location:order.php');
+			$noofitm=intval($row['noofpr'])-$count;
+			$prid=$row['id'];
+			$prdname=$row['name'];
+			$y='N';
+			if (update("category","noofpr","'$noofitm'","WHERE id='$prid'")) 
+			{				
+				$wcb=select("*","prdanalysis","WHERE prdid='$prid'");
+				if (mysqli_num_rows($wcb)>0)
+				{
+					while($row=mysqli_fetch_assoc($wcb))
+					{
+						if($row['month']==$month AND $row['prdid']==$prid AND $row['pricepermonth']==$prdprice)
+						{
+							$srid=$row['srid'];
+							$prcount=$row['itmcount'];
+							$y='Y';
+						}
+					}
+				}
+				if($y=='Y')
+				{
+					$count+=$prcount;
+					if (update("prdanalysis","itmcount","'$count'","WHERE srid='$srid'")) 
+					poutput("New Order Placed",'order.php');
+				}
+				else
+				{
+					$insrtana="INSERT INTO prdanalysis (prdid,prdname,month,itmcount,pricepermonth) VALUES('$prid','$prdname','$month','$count','$prdprice')";
+					if(mysqli_query($connection,$insrtana))
+						poutput("New Order Placed",'order.php');
+					else
+						noutput("New Order Not Placed",'order.php');
+				}
+			}
 		}
 	}
 	else

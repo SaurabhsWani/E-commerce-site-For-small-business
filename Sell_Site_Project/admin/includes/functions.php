@@ -1,6 +1,6 @@
 <?php
 
-    define('DBINFO', 'mysql:host=localhost;dbname=gopaaata');
+    define('DBINFO', 'mysql:host=localhost;dbname=sellsite');
     define('DBUSER','root');
     define('DBPASS','');
 

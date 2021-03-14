@@ -8,7 +8,6 @@ $productdetails = array();
 if (mysqli_num_rows($wcb)>0)
 {
 	$row=mysqli_fetch_assoc($wcb);
-}
 ?><br/><br/>
 <div class="page-inner mt--5">	
 	<div class="row">
@@ -72,7 +71,7 @@ if (mysqli_num_rows($wcb)>0)
 								</select>
 							</div>
 							<div class="form-group col-md-7 ml-auto mr-auto">
-								<button type="submit" name="pay" value="yes"> adfafd</button>
+								<button type="submit" name="pay" value="yes"> Place Order</button>
 							</div>
 						</div>
 					</form>
@@ -82,6 +81,7 @@ if (mysqli_num_rows($wcb)>0)
 	</div>
 </div> 
 <?php
+}
 include('footer.php');
 include('script.php');
 ?>

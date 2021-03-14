@@ -83,7 +83,8 @@
     </div>
   </div>
 </div>
-<?php
+<br>
+<!-- <?php
 $quer="SELECT * FROM slider";
 $sql=mysqli_query($connection,$quer);
 ?>
@@ -91,7 +92,7 @@ $sql=mysqli_query($connection,$quer);
   <?php
   foreach($sql as $row ) {
     ?>
-    <div class="site-blocks-cover inner-page overlay" style="background-image: url(<?php echo "admin/image/".$row['image'];?>)"; data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover inner-page overlay" style="background-image: url(<?php echo "admin/image/".$row['image'];?>);" data-aos="fade" data-stellar-background-ratio="0">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6 text-center" data-aos="fade">
@@ -106,4 +107,4 @@ $sql=mysqli_query($connection,$quer);
   ?>
 </div>
 
-    <!-- <div class="slant-1"></div> -->
+    <div class="slant-1"></div> -->

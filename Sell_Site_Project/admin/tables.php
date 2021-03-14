@@ -82,7 +82,6 @@ include('includes/header.php');
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Last Name</th>
           <th>Email</th>
           <th>Password</th>
           <th>Profile Photo</th>
@@ -96,7 +95,6 @@ include('includes/header.php');
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Last Name</th>
           <th>Email</th>
           <th>Password</th>
           <th>Profile Photo</th>
@@ -120,8 +118,7 @@ include('includes/header.php');
             ?>
             <tr>
               <td><?php echo $row['bid'];?></td>
-              <td><?php echo $row['First_Name'];?></td>
-              <td><?php echo $row['Last_Name'];?></td>
+              <td><?php echo $row['Name'];?></td>
               <td><?php echo $row['Email'];?></td>
               <td><?php echo $row['Password'];?></td>
               <td><?php echo "<div id='img_div'><img src='../admin/image/".$row['image']."'width=100px;height=100px;></div>";?></td>

@@ -48,7 +48,7 @@ if (isset($_POST['btn']))
               ?>
               <tr>
                 <td><?php echo $row['id'];?> </td>
-                <td><?php echo $row['First_Name'];?> <?php echo $row['Last_Name'];?>  </td>
+                <td><?php echo $row['Name'];?></td>
                 <td> <?php echo $row['review'];?></td>
                 <td> <?php echo $row['rate'];?> </td>
                 <td> <?php $st=$row['display']=='yes'?'Showing':'Not Showing'; echo($st);?></td>

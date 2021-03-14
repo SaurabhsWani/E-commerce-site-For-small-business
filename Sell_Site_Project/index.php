@@ -1,17 +1,17 @@
 <?php
 include('header.php');
 ?>
-<div class="site-section first-section">
+<!-- <div class="site-section first-section">
   <div class="container">
-    <div class="row mb-5">
+    <div class="row mb-1">
       <div class="col-md-12 text-center" data-aos="fade">
         <span class="caption d-block mb-2 font-secondary font-weight-bold">Outstanding Services of </span>
         <h2 class="site-section-heading text-uppercase text-center font-secondary">Sell Site</h2>
-        <h3 class="caption d-block mb-5 font-secondary font-weight-bold"><h2>About Us</h2></h>
+        <h3 class="caption d-block mb-5 font-secondary font-weight-bold"><h2>About Us</h2></h3>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <?php
   $query="SELECT * FROM review INNER JOIN b_person ON review.id=b_person.bid";
   $sql=mysqli_query($connection,$query);
@@ -64,7 +64,7 @@ include('header.php');
       <h6 class="m-0 font-weight-bold ">Reviews From Customers <u><?php echo"Rating: ".$rate;?></u></h6><h8>Click to show More</h8>
     </a>
     <!-- Card Content - Collapse -->
-    <div class="collapse" id="collapseCardExample">
+   <!--  <div class="collapse" id="collapseCardExample">
       <div class="card-body">
         <?php
         $query="SELECT * FROM review INNER JOIN b_person ON review.id=b_person.bid";
@@ -99,7 +99,7 @@ include('header.php');
         }
         ?>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <br>

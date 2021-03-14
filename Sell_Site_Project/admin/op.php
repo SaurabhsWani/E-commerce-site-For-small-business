@@ -78,7 +78,7 @@ if ($_POST['Update']=="UpdNews")
 }
 if ($_POST['Update']=="UpdNav") 
 {
-	$sql="UPDATE nav SET h1='$_POST[h1]',h2='$_POST[h2]',h3='$_POST[h3]',h4='$_POST[h4]',h5='$_POST[h5]',h6='$_POST[h6]',h7='$_POST[h7]',h8='$_POST[h8]' WHERE id=$id1";
+	$sql="UPDATE nav SET h1='$_POST[h1]',h3='$_POST[h3]',h4='$_POST[h4]',h5='$_POST[h5]',h6='$_POST[h6]' WHERE id=$id1";
 
 	if(mysqli_query($connection,$sql))
 		poutput("Navigation Bar Updated",$url);

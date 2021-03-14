@@ -45,10 +45,6 @@ include('includes/header.php');
               <input type="text" value="<?php echo $row['h1'];?>" class="form-control"  name="h1" required="">
             </div>
             <div class="form-group">
-              <label for="h1">Admin Login</label>
-              <input type="text" value="<?php echo $row['h2'];?> " class="form-control"  name="h2" required="">
-            </div>
-            <div class="form-group">
               <label for="h1">User Login</label>
               <input type="text" value="<?php echo $row['h3'];?>" class="form-control"  name="h3" required="">
             </div>
@@ -61,18 +57,9 @@ include('includes/header.php');
               <input type="text" value="<?php echo $row['h5'];?>" class="form-control"  name="h5" required="">
             </div>
             <div class="form-group">
-              <label for="h1">Certificate</label>
-              <input type="text" value="<?php echo $row['h7'];?>" class="form-control"  name="h7" required="">
-            </div>
-            <div class="form-group">
               <label for="h1">Contact</label>
               <input type="text" value="<?php echo $row['h6'];?>" class="form-control"  name="h6" required="">
             </div>
-            <div class="form-group">
-              <label for="h1">Recipe</label>
-              <input type="text" value="<?php echo $row['h8'];?>" class="form-control"  name="h8" required="">
-            </div>
-
             <a href="Navigation.php" class="btn btn-danger">CANCEL</a>
             <input type="hidden" name="id" value="<?php echo $row['id'];?>">
             <button type="submit" class="btn btn-success" name="Update" value="UpdNav">Update</button>

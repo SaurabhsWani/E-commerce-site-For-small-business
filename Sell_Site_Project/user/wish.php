@@ -53,7 +53,11 @@ if (mysqli_num_rows($wcb)>0)
 											<button type="submit" name="wishlist" value="<?php echo 'W'.$row['id'];?>" class="btn btn-icon btn-round btn-danger">
 												<i class="fa fa-heart"></i>
 											</button>&emsp;&emsp;&emsp;
-											<button type="submit" name="buynow" value="<?php echo 'B'.$row['id'];?>" class="btn btn-primary btn-border btn-round">Buy Now</button>
+											<?php if($row['noofpr'] > 0){?>
+												<button type="submit" name="buynow" value="<?php echo 'B'.$row['id'];?>" class="btn btn-sm btn-primary btn-border btn-round">Buy Now</button>
+											<?php }else{ ?>
+												<a href="#" class="btn btn-sm btn-danger btn-border btn-round">OutOfStock</a>
+											<?php } ?>
 										</form>
 										<!-- <a href="#" class="btn btn-primary btn-rounded btn-sm">Read More</a> -->
 									</div>

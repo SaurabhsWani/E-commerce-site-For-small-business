@@ -26,13 +26,13 @@ include('includes/header.php');
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Register Admin</div>
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Registered Admin</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
                 <?php
                 $query="SELECT bid FROM admin ORDER BY bid";
                 $sql_run=mysqli_query($connection,$query);
                 $row=mysqli_num_rows($sql_run);
-                echo '<h4>Total Admin: '.$row.'</h4>';
+                echo '<h4> Admin: '.$row.'</h4>';
                 ?>
               </div>
             </div>
@@ -50,13 +50,13 @@ include('includes/header.php');
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Register User</div>
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Registered User</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
                 <?php
                 $query="SELECT bid FROM b_person ORDER BY bid";
                 $sql_run=mysqli_query($connection,$query);
                 $row=mysqli_num_rows($sql_run);
-                echo '<h4>Total User : '.$row.'</h4>';
+                echo '<h4> User : '.$row.'</h4>';
                 ?>                
               </div>
             </div>
@@ -74,7 +74,7 @@ include('includes/header.php');
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Distributer Contacted Us yet</div>
+              <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> Connected Distributers</div>
               <div class="row no-gutters align-items-center">
                 <div class="col">
                   <?php
@@ -82,7 +82,7 @@ include('includes/header.php');
                   $sql_run=mysqli_query($connection,$query);
                   $row=mysqli_num_rows($sql_run);
                   $x1=$row;
-                  echo '<h4>Total Distributer : '.$row.'</h4>';
+                  echo '<h4>Distributer : '.$row.'</h4>';
                   ?>                          
                 </div>
               </div>
@@ -94,14 +94,132 @@ include('includes/header.php');
         </div>
       </div>
     </div>
+    <?php
+    $noofrows=0;
+    $prdname="Select Another Product";
+    if ($_SERVER["REQUEST_METHOD"]=="GET") 
+    {
+      if (isset($_GET['Prd'])) {
+        $month = array();
+        $prdid=$_GET['Prd'];
+        $sellval=array();
+        $ppm=array();
+        $wcb=select("*","prdanalysis","WHERE prdid='$prdid'");
+        $noofrows=mysqli_num_rows($wcb);
+        if (mysqli_num_rows($wcb)>0)
+        {
+          while($row=mysqli_fetch_assoc($wcb))
+          {
+            array_push($month,$row['month']);
+            array_push($sellval,$row['itmcount']);
+            array_push($ppm,$row['pricepermonth']);
+            $prdname=$row['prdname'];
+          }
+        }
+        else
+        {
+          array_push($month,0);
+          array_push($sellval,0);
+          $prdname="No Sell of Selected Item Yet";
+        }
+        $jmonth=json_encode($month);
+        $jsellval=json_encode($sellval); 
+      }
+    }
+    ?>
+    <div class="col-xl-12 " id="graph">
+      <div class="card shadow mb-4" >
+        <div class="card-header py-3 bg-gradient-light text-gray-900">
+          <div class="row">
+            <form method="get" action="index.php#graph" class="col-md-7">
+              <div class="form-group ">
+                <label for="exampleFormControlSelect1">Select Item to see chart</label>
+                <select class="form-control" name="Prd" title="Select Product to see graph" id="exampleFormControlSelect1">
+
+                  <?php
+                  if ($_SERVER["REQUEST_METHOD"]=="GET") 
+                  {
+                    if (isset($_GET['Prd'])) {
+                      echo "<option  value='".$prdid."'>".strtoupper($prdname)."</option>";
+                    }
+                  }
+                  $getprd=select("*","category"," ");
+                  if (mysqli_num_rows($getprd)>0)
+                  {
+                    while($row=mysqli_fetch_assoc($getprd))
+                    {
+                      echo "<option  value='".$row['id']."'>".strtoupper($row['name'])."</option>";
+                    }
+                  }
+                  ?>
+                </select>
+                <button type="submit" class="form-control btn btn-primary" name="Show">Show Graph</button>
+              </div>
+            </form>
+            <div class="col-md-5">
+              <?php
+              if ($_SERVER["REQUEST_METHOD"]=="GET" AND $noofrows>0) 
+              {
+                if (isset($_GET['Prd']))
+                  { ?>
+                    <table class="bg-gray-400 text-gray-900 " cellspacing="0" border="" style="text-align: center;">
+                      <thead>
+                        <tr>
+                          <td>Product</td>
+                          <td>Month</td>
+                          <td>Total Sell</td>
+                          <td>Month price</td>
+                          <td>Total Price</td>
+                        </tr> 
+                      </thead>
+                      <tbody>
+                        <?php 
+                        $ttl=0;
+                        for ($i=0; $i < count($sellval); $i++) { 
+                          echo "<tr>
+                          <td>".strtoupper($prdname)."</td>
+                          <td>".$month[$i]."</td>
+                          <td>".$sellval[$i]."</td>                          
+                          <td>".$ppm[$i]."</td>
+                          <td>".$sellval[$i]*$ppm[$i]."</td>
+                          </tr>
+                          ";
+                          $ttl=$ttl+($sellval[$i]*$ppm[$i]);
+                        }
+                        ?> 
+                        <tr><td>Total</td><td></td><td></td><td></td><td> <?php echo $ttl; ?></td></tr>
+                      </tbody>
+                    </table>
+                    <?php
+                  }
+                }
+                ?>
+              </div>
+            </div>
+            <h6 class="m-0 font-weight-bold text-primary">
+              <?php echo strtoupper($prdname);?>
+            </h6>
+          </div>
+         <?php if ($_SERVER["REQUEST_METHOD"]=="GET" AND $noofrows>0) 
+              {
+                ?> 
+                <div class="card-body ">
+            <div class="chart-area">
+              <canvas id="myAreaChart"></canvas>
+            </div>
+            <hr>
+            The Graph Shows the selling of product in a month 
+            <code><?php echo strtoupper($prdname);?> Sell Vs Month</code>.
+          </div>
+        <?php } ?>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<!-- /.container-fluid -->
-</div>
-<!-- End of Main Content -->
-<?php 
-include('includes/footer.php');
-?>
+  <!-- /.container-fluid -->
+  <?php 
+  include('includes/footer.php');
+  ?>
 
 
 

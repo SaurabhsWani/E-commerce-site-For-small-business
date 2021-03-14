@@ -13,22 +13,22 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-<script type="text/javascript">
+  <script type="text/javascript">
    function readURL(input) {
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#blah')
-            .attr('src', e.target.result)
-            .width(100)
-            .height(100);
-            $('#chnge').attr('src','image/arrow.jpg')
-            .width(100)
-            .height(100);
-        };
-        reader.readAsDataURL(input.files[0]);
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#blah')
+        .attr('src', e.target.result)
+        .width(100)
+        .height(100);
+        $('#chnge').attr('src','image/arrow.jpg')
+        .width(100)
+        .height(100);
+      };
+      reader.readAsDataURL(input.files[0]);
     }
-}
+  }
 </script>
 </head>
 
@@ -37,7 +37,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
    <!-- Sidebar -->
-   <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+   <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
     <?php
     include("functions.php");
     include("./functions.php");
@@ -56,6 +56,9 @@
           <div class="sidebar-brand-text mx-3"><?php echo $_SESSION['name']; ?></div>
         </a>
         <br>
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0 " id="sidebarToggle"></button>
+        </div>
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
@@ -89,7 +92,7 @@
               <!-- Divider -->
               <hr class="sidebar-divider">
               <!-- Nav Item - Pages Collapse Menu -->
-               <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link" href="abtus.php">
                   <i class="fas fa-info-circle fa-sm fa-fw mr-2 text-gray-200"></i>
                   <span>About us</span></a>
@@ -147,9 +150,7 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
                 <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                  <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
+                
               </ul>
               <!-- End of Sidebar -->
               <!-- Content Wrapper -->
@@ -275,12 +276,6 @@
 
         </nav>
         <!-- End of Topbar -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-          <i class="fas fa-angle-up"></i>
-        </a>
-
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
