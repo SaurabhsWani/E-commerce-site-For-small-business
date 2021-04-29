@@ -147,7 +147,7 @@ if ($_POST['Update']=="AddPrd")
 		$image=$_FILES['aimg']['tmp_name'];
 		$image2=$_FILES['aimg']['name'];
 	}
-	$sql="INSERT INTO category (image,pname,price,name,noofpr) VALUES('$image2','$_POST[pname]','$_POST[price]','$_POST[pnme]','$_POST[ppic]')";
+	$sql="INSERT INTO category (image,pname,price,name,noofpr,costprice) VALUES('$image2','$_POST[pname]','$_POST[price]','$_POST[pnme]','$_POST[ppic]','$_POST[cprice]')";
 	if(mysqli_query($connection,$sql))
 	{
 		if(move_uploaded_file($image,$target))

@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteRule ^asdfg?$ index.php
+RewriteRule ^tyuio?$ about.php
+RewriteRule ^zxcvb?$ gallery.php
+RewriteRule ^cvbnm?$ category.php
+RewriteRule ^akihdar?$ contact.php
+RewriteRule ^barwas?$ reg_buy.php

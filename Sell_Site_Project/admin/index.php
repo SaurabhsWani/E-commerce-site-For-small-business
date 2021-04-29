@@ -102,9 +102,12 @@ include('includes/header.php');
       if (isset($_GET['Prd'])) {
         $month = array();
         $prdid=$_GET['Prd'];
+        $arr = explode('-', $prdid);
+        $prdid= $arr[0];
+        $cprice= $arr[1];
         $sellval=array();
         $ppm=array();
-        $wcb=select("*","prdanalysis","WHERE prdid='$prdid'");
+        $wcb=select("*","prdanalysis","WHERE prdid='$prdid' ORDER BY srid DESC");
         $noofrows=mysqli_num_rows($wcb);
         if (mysqli_num_rows($wcb)>0)
         {
@@ -131,7 +134,7 @@ include('includes/header.php');
       <div class="card shadow mb-4" >
         <div class="card-header py-3 bg-gradient-light text-gray-900">
           <div class="row">
-            <form method="get" action="index.php#graph" class="col-md-7">
+            <form method="get" action="index.php#graph" class="col-md-6">
               <div class="form-group ">
                 <label for="exampleFormControlSelect1">Select Item to see chart</label>
                 <select class="form-control" name="Prd" title="Select Product to see graph" id="exampleFormControlSelect1">
@@ -143,12 +146,12 @@ include('includes/header.php');
                       echo "<option  value='".$prdid."'>".strtoupper($prdname)."</option>";
                     }
                   }
-                  $getprd=select("*","category"," ");
+                  $getprd=select("*","category","ORDER BY id DESC");
                   if (mysqli_num_rows($getprd)>0)
                   {
                     while($row=mysqli_fetch_assoc($getprd))
                     {
-                      echo "<option  value='".$row['id']."'>".strtoupper($row['name'])."</option>";
+                      echo "<option  value='".$row['id']."-".$row['costprice']."'>".strtoupper($row['name'])."</option>";
                     }
                   }
                   ?>
@@ -156,38 +159,48 @@ include('includes/header.php');
                 <button type="submit" class="form-control btn btn-primary" name="Show">Show Graph</button>
               </div>
             </form>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <?php
               if ($_SERVER["REQUEST_METHOD"]=="GET" AND $noofrows>0) 
               {
                 if (isset($_GET['Prd']))
                   { ?>
-                    <table class="bg-gray-400 text-gray-900 " cellspacing="0" border="" style="text-align: center;">
+                    <table class="bg-gray-200 text-gray-900 " cellspacing="0" border="" style="text-align: center;">
                       <thead>
                         <tr>
-                          <td>Product</td>
+                          <td>Product </td>
                           <td>Month</td>
                           <td>Total Sell</td>
-                          <td>Month price</td>
-                          <td>Total Price</td>
+                          <td>Month SP (<?php echo $cprice; ?>)</td>
+                          <td>Total CP</td>
+                          <td>Total SP</td>
+                          <td>Profit/Loss <i class="fas fa-arrow-up"></i><i class="fas fa-arrow-down"></i></td>
                         </tr> 
                       </thead>
                       <tbody>
                         <?php 
-                        $ttl=0;
+                        $ttlsp=$ttlcp=$tsitmc=0;
                         for ($i=0; $i < count($sellval); $i++) { 
+                          $tsitmc+=$sellval[$i];
+                          $tcp=$sellval[$i]*$cprice;
+                          $tsp=$sellval[$i]*$ppm[$i];
+                          $profitorloss=$tsp==$tcp?" ":($tsp>$tcp?" <i class='fas fa-arrow-up text-success'></i>":" <i class='fas fa-arrow-down text-danger'></i>");
                           echo "<tr>
                           <td>".strtoupper($prdname)."</td>
                           <td>".$month[$i]."</td>
                           <td>".$sellval[$i]."</td>                          
                           <td>".$ppm[$i]."</td>
-                          <td>".$sellval[$i]*$ppm[$i]."</td>
+                          <td>".$tcp."</td>
+                          <td>".$tsp."</td>
+                          <td>".($tsp-$tcp),$profitorloss."</td>
                           </tr>
                           ";
-                          $ttl=$ttl+($sellval[$i]*$ppm[$i]);
+                          $ttlsp=$ttlsp+($sellval[$i]*$ppm[$i]);
+                          $ttlcp=$ttlcp+($sellval[$i]*$cprice);
                         }
+                        $tprofitorloss=$ttlsp==$ttlcp?"":$ttlsp>$ttlcp?" <i class='fas fa-arrow-up text-success'></i>":" <i class='fas fa-arrow-down text-danger'></i>";
                         ?> 
-                        <tr><td>Total</td><td></td><td></td><td></td><td> <?php echo $ttl; ?></td></tr>
+                        <tr><td>Total</td><td></td><td><?php echo $tsitmc;?></td><td></td><td><?php echo $ttlsp; ?></td><td><?php echo $ttlcp; ?></td><td><?php echo($ttlsp-$ttlcp),$tprofitorloss ?></td></tr>
                       </tbody>
                     </table>
                     <?php
@@ -200,18 +213,18 @@ include('includes/header.php');
               <?php echo strtoupper($prdname);?>
             </h6>
           </div>
-         <?php if ($_SERVER["REQUEST_METHOD"]=="GET" AND $noofrows>0) 
-              {
-                ?> 
-                <div class="card-body ">
-            <div class="chart-area">
-              <canvas id="myAreaChart"></canvas>
+          <?php if ($_SERVER["REQUEST_METHOD"]=="GET" AND $noofrows>0) 
+          {
+            ?> 
+            <div class="card-body ">
+              <div class="chart-area">
+                <canvas id="myAreaChart"></canvas>
+              </div>
+              <hr>
+              The Graph Shows the selling of product in a month 
+              <code><?php echo strtoupper($prdname);?> Sell Vs Month</code>.
             </div>
-            <hr>
-            The Graph Shows the selling of product in a month 
-            <code><?php echo strtoupper($prdname);?> Sell Vs Month</code>.
-          </div>
-        <?php } ?>
+          <?php } ?>
         </div>
       </div>
     </div>

@@ -36,7 +36,11 @@ include('includes/header.php');
               <input type="number" name="ppic" class="form-control"  required="">
             </div>
             <div class="form-group">
-              <label>Product Price</label>
+              <label>Product Cost Price</label>
+              <input type="text" name="cprice" class="form-control"  required="">
+            </div>
+            <div class="form-group">
+              <label>Product Selling Price</label>
               <input type="text" name="price" class="form-control"  required="">
             </div>
           </div>
@@ -74,7 +78,8 @@ include('includes/header.php');
           <tr>
             <td><label>Upload Image</label></td>
             <td><label>Update Quantity</label></td>
-            <td><label>Update Price</label></td>
+            <td><label>Cost Price</label></td>
+            <td><label>Update Selling Price</label></td>
             <td><label>Update Name</label></td>
             <td><label>Update No of pice</label></td>
             <td><label>Update </label></td>
@@ -82,7 +87,7 @@ include('includes/header.php');
           </tr>
         </thead>
         <?php
-        $query="SELECT * FROM category";
+        $query="SELECT * FROM category ORDER BY id DESC";
         $sql=mysqli_query($connection,$query);
         foreach($sql as $row ) {
           ?>
@@ -97,6 +102,11 @@ include('includes/header.php');
              <td>
               <div class="form-group">
                 <input type="text" name="pname" class="form-control" value="<?php echo $row['pname'];?>" required="">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="dis" disabled=""class="form-control" value="<?php echo $row['costprice'];?>" >
               </div>
             </td>
             <td>
