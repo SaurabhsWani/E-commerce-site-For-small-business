@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2021 at 10:06 AM
+-- Generation Time: Apr 30, 2021 at 10:14 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -106,19 +106,21 @@ CREATE TABLE `category` (
   `pname` text NOT NULL,
   `price` int(200) NOT NULL,
   `name` text NOT NULL,
-  `noofpr` int(11) NOT NULL
+  `noofpr` int(11) NOT NULL,
+  `costprice` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `image`, `pname`, `price`, `name`, `noofpr`) VALUES
-(5, 'about-img.jpg', '1', 40, 'Atta', 10),
-(8, 'aid10155888-v4-728px-Make-Jowar-Roti-Step-2.jpg.jpg', '1 kG', 100, 'rice', 10),
-(9, '6.jpg', '1 kG', 50, 'jwari', 10),
-(10, '5.jpg', '250 G', 100, 'Bhakri', 50),
-(11, 'biscuits.jpg', '250 G', 100, 'Biscuit', 10);
+INSERT INTO `category` (`id`, `image`, `pname`, `price`, `name`, `noofpr`, `costprice`) VALUES
+(5, 'about-img.jpg', '1', 40, 'Atta', 490, 30),
+(8, 'aid10155888-v4-728px-Make-Jowar-Roti-Step-2.jpg.jpg', '1 kG', 101, 'rice', 487, 90),
+(9, '6.jpg', '1 kG', 50, 'jwari', 495, 30),
+(10, '5.jpg', '250 G', 100, 'Bhakri', 496, 80),
+(11, 'biscuits.jpg', '250 G', 100, 'Biscuit', 499, 85),
+(12, '7.jpg', '2Kg', 90, 'Gahu', 497, 70);
 
 -- --------------------------------------------------------
 
@@ -239,7 +241,7 @@ CREATE TABLE `nav` (
 --
 
 INSERT INTO `nav` (`id`, `image`, `h1`, `h3`, `h4`, `h5`, `h6`) VALUES
-(1, 'veg.png', 'Home', 'Login', 'About us', 'Gallery', 'Contact');
+(1, 'veg.png', 'Homee', 'Loginn', 'About uss', 'Galleryy', 'Contactt');
 
 -- --------------------------------------------------------
 
@@ -260,6 +262,40 @@ INSERT INTO `nupd` (`id`, `l1`) VALUES
 (1, 'here is new offer for you 200'),
 (2, 'asdf'),
 (3, 'here is');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prdanalysis`
+--
+
+CREATE TABLE `prdanalysis` (
+  `prdname` text NOT NULL,
+  `month` text NOT NULL,
+  `itmcount` int(11) NOT NULL,
+  `srid` int(11) NOT NULL,
+  `prdid` int(11) NOT NULL,
+  `pricepermonth` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prdanalysis`
+--
+
+INSERT INTO `prdanalysis` (`prdname`, `month`, `itmcount`, `srid`, `prdid`, `pricepermonth`) VALUES
+('rice', 'Mar/2021', 15, 1, 8, 90),
+('rice', 'Aprl/2021', 5, 4, 8, 92),
+('rice', 'May/2021', 12, 5, 8, 93),
+('jwari', 'Aprl/2021', 4, 6, 9, 97),
+('jwari', 'May/2021', 10, 7, 9, 99),
+('jwari', 'Jun/2021', 10, 8, 9, 104),
+('rice', 'Mar/2021', 2, 9, 8, 89),
+('Atta', 'Mar/2021', 3, 12, 5, 40),
+('Gahu', 'May/2021', 2, 13, 12, 90),
+('Atta', 'May/2021', 1, 14, 5, 40),
+('Atta', 'Apr/2021', 1, 15, 5, 40),
+('Gahu', 'Apr/2021', 1, 16, 12, 90),
+('Biscuit', 'Apr/2021', 1, 17, 11, 100);
 
 -- --------------------------------------------------------
 
@@ -306,7 +342,8 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`image`, `h1`, `h2`, `id`) VALUES
-('arrow.jpg', 'Home', 'Admin Login', 21);
+('arrow.jpg', 'Home', 'Admin Login', 21),
+('arrow.jpg', 'hello', 'jaude sod', 22);
 
 -- --------------------------------------------------------
 
@@ -326,7 +363,7 @@ CREATE TABLE `wishcartbuy` (
 --
 
 INSERT INTO `wishcartbuy` (`wish`, `cart`, `buy`, `id`) VALUES
-('a:0:{}', 'a:0:{}', 'a:0:{}', 23);
+('a:1:{i:0;i:5;}', 'a:1:{i:0;i:5;}', 'a:0:{}', 23);
 
 --
 -- Indexes for dumped tables
@@ -394,6 +431,12 @@ ALTER TABLE `nupd`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `prdanalysis`
+--
+ALTER TABLE `prdanalysis`
+  ADD PRIMARY KEY (`srid`);
+
+--
 -- Indexes for table `slider`
 --
 ALTER TABLE `slider`
@@ -431,7 +474,7 @@ ALTER TABLE `b_person`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `city`
@@ -470,10 +513,16 @@ ALTER TABLE `nupd`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `prdanalysis`
+--
+ALTER TABLE `prdanalysis`
+  MODIFY `srid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
