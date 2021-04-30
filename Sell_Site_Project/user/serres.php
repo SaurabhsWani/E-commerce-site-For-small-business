@@ -79,7 +79,10 @@ if (mysqli_num_rows($wcb)>0)
 		</div>
 	</div>
 </div> 
-<?php
+<?php 
+if(mysqli_num_rows($sql)==0){
+	echo "<center><h1><i class='fas fa-sad-tear text-warning'></i> No result found for '<span class='text-danger'>$sq'</span></h1></center>";
+}
 include('footer.php');
 include('script.php');
 ?>

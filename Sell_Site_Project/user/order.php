@@ -26,7 +26,7 @@ $doc=$col->find([],
 									<div class="d-flex">
 										<div class="info-post ml-2">
 											<h3 class="card-title">
-												<a href="#"><?php print_r($docs['Prname']); ?></a>
+												<a href="index.php"><?php print_r($docs['Prname']); ?></a>
 											</h3>
 											<p class="username">Rs.<?php print_r($docs['Price']); ?></p>
 											<button class="d-none d-sm-inline-block btn btn-sm shadow-sm" onclick="generate(<?php echo $docs['_id']?>)">

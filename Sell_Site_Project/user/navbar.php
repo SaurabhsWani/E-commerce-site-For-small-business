@@ -45,11 +45,6 @@ require('../admin/functions.php');
 			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="green2">
 				
 				<div class="container-fluid">
-					<div class="navbar-nav topbar-nav  align-items-center mr-md-3">
-						<h2 class="text-white fw-bold">
-							
-						</h2>					 
-					</div>
 					<div class="collapse" id="search-nav">
 						<form class="navbar-left navbar-form nav-search mr-md-3" method="get" action="serres.php">
 							<div class="input-group">
@@ -61,6 +56,11 @@ require('../admin/functions.php');
 								<input type="text" name="sq" placeholder="Search Product..." class="form-control">
 							</div>
 						</form>
+					</div>
+					<div class="collapse" id="search-nav">
+							<div class="input-group">
+								<a href="index.php#Howto"><button class="btn btn-round">How to Buy</button></a>
+							</div>
 					</div>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">

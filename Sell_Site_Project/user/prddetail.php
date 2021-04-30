@@ -34,7 +34,7 @@ if (mysqli_num_rows($wcb)>0)
 							<div class="col-md-7 ml-auto mr-auto">
 								<div class="form-group form-group-default">
 									<label>Qty</label>
-									<input type="Quantity" pattern="[0-5]{1}" class="form-control" name="count" placeholder="Less than 6">
+									<input type="int" pattern="[0-5]{1}" class="form-control" name="count" value="1" placeholder="Less than 6">
 								</div>
 							</div>
 							<?php  
@@ -57,8 +57,7 @@ if (mysqli_num_rows($wcb)>0)
 							</div>
 							<div class="form-group col-md-7 ml-auto mr-auto">
 								<label for="text">Address</label>
-								<textarea class="form-control" id="address" rows="3" name="uaddress">
-								</textarea>
+								<textarea class="form-control" id="address" rows="3" name="uaddress" placeholder="Your Address"></textarea>
 							</div>
 							<div class="form-group col-md-7 ml-auto mr-auto">
 								<label for="exampleFormControlSelect1">Payment Method</label>
@@ -71,7 +70,7 @@ if (mysqli_num_rows($wcb)>0)
 								</select>
 							</div>
 							<div class="form-group col-md-7 ml-auto mr-auto">
-								<button type="submit" name="pay" value="yes"> Place Order</button>
+								<button type="submit" name="pay" value="yes" class="btn btn-block btn-primary"> Place Order</button>
 							</div>
 						</div>
 					</form>

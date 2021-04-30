@@ -105,7 +105,8 @@ include('navbar.php');
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid col-md-8">
+	<hr style="border: 1px dashed black;">
+	<div class="container-fluid col-md-8" id="Howto">
 		<h4 class="page-title">How To Buy Gopa Aata Product ?</h4>
 		<div class="row">
 			<div class="col-md-12">

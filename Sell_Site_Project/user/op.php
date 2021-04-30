@@ -79,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
 	{
 		$uname=$_POST['uname'];
 		$row=$_POST['prd'];
-		$count=$_POST['count'];
-		$prdprice=$row['price'];
-		$TPrice=$_POST['count']*$prdprice;
+		$count=(int)$_POST['count'];
+		$prdprice=(int)$row['price'];
+		$TPrice=$count*$prdprice;
 		$img=$row['image'];
 		$umob=$_POST['umob'];
 		$uemail=$_POST['uemail'];
