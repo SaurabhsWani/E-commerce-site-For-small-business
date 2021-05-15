@@ -9,6 +9,8 @@ if (mysqli_num_rows($wcb)>0)
 {
 	$row=mysqli_fetch_assoc($wcb);
 ?><br/><br/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <div class="page-inner mt--5">	
 	<div class="row">
 		<div class="col-md-8 ml-auto mr-auto">
@@ -29,12 +31,12 @@ if (mysqli_num_rows($wcb)>0)
 						<h2 class="h4 ml-auto mr-auto"><?php echo 'Quantity: '.$row['pname'];?></h2>
 						<h2 class="h4 ml-auto mr-auto"><?php echo 'Rs.'.$row['price'];?></h2>
 					</div>
-					<form action="op.php" method="post">
+					<form action='op.php' method="POST">
 						<div class="row">
 							<div class="col-md-7 ml-auto mr-auto">
 								<div class="form-group form-group-default">
 									<label>Qty</label>
-									<input type="int" pattern="[0-5]{1}" class="form-control" name="count" value="1" placeholder="Less than 6">
+									<input type="int" pattern="[0-5]{1}" class="form-control" id='count' name="count" value="1" placeholder="Less than 6">
 								</div>
 							</div>
 							<?php  
@@ -70,7 +72,7 @@ if (mysqli_num_rows($wcb)>0)
 								</select>
 							</div>
 							<div class="form-group col-md-7 ml-auto mr-auto">
-								<button type="submit" name="pay" value="yes" class="btn btn-block btn-primary"> Place Order</button>
+								<button type="submit" name="pay" value="yes" class="btn btn-block btn-primary" onclick="pay_now()" > Place Order</button>
 							</div>
 						</div>
 					</form>

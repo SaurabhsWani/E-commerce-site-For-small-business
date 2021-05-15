@@ -1,13 +1,17 @@
 <?php
 include('header.php');
-?>
-<?php
 $emaill="";
 function test_input($data) {
 	$data = trim($data);
 	$data = stripslashes($data);
 	$data = htmlspecialchars($data);
 	return $data;
+}
+if (isset($_GET['f'])) {
+	include('security1.php'); 
+	if(isset($_SESSION['usr'])){
+		echo '<script>window.location="index.php"</script>'; 		
+	}
 }
 if (isset($_POST['Password'])) 
 {

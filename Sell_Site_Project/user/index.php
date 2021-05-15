@@ -55,8 +55,7 @@ include('navbar.php');
 		}
 	}
 	?>
-	<div class="row ">
-		<div class="col-md-10 ml-auto mr-auto">
+		<div class="col-md-11 ml-auto mr-auto">
 			<div class="row ">
 				<?php 
 				$query="SELECT * FROM category";
@@ -104,7 +103,6 @@ include('navbar.php');
 				?>
 			</div>
 		</div>
-	</div>
 	<hr style="border: 1px dashed black;">
 	<div class="container-fluid col-md-8" id="Howto">
 		<h4 class="page-title">How To Buy Gopa Aata Product ?</h4>

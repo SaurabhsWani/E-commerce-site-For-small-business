@@ -24,8 +24,7 @@ if (mysqli_num_rows($wcb)>0)
 }
 ?><br/><br/>
 <div class="page-inner mt--5">	
-	<div class="row ">
-		<div class="col-md-10 ml-auto mr-auto">
+		<div class="col-md-11 ml-auto mr-auto">
 			<div class="row ">
 				<?php 
 				if ($_SERVER["REQUEST_METHOD"]=="GET") 
@@ -33,6 +32,7 @@ if (mysqli_num_rows($wcb)>0)
 					$sq=isset($_GET['sq'])?$_GET['sq']:" ";
 					$query="SELECT * FROM category WHERE name LIKE '%$sq%'";
 					$sql=mysqli_query($connection,$query);
+					echo "<div class='col-md-12 text-info h4'>".mysqli_num_rows($sql)." Results </div>";
 					if (mysqli_num_rows($sql)>0) {
 						while ($row=mysqli_fetch_assoc($sql)) {
 							$wc=in_array($row['id'],$w)?"btn-danger":"";
@@ -77,7 +77,6 @@ if (mysqli_num_rows($wcb)>0)
 				?>
 			</div>
 		</div>
-	</div>
 </div> 
 <?php 
 if(mysqli_num_rows($sql)==0){

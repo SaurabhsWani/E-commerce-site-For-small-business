@@ -2,12 +2,11 @@
 include('header.php');
 include('navbar.php');
 ?>
-
 <div class="page-inner mt--5">
   <br>
-  <div class="card shadow mb-4">
+  <div class="card shadow mb-4  col-md-8 ml-auto mr-auto">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary"> Edit Admin Profile  </h6>
+      <h6 class="m-0 font-weight-bold text-primary"> Edit User Profile  </h6>
     </div>
     <div class="card-body">
      <form action="usrupd.php" method="post" enctype="multipart/form-data">
@@ -29,8 +28,8 @@ include('navbar.php');
       </div>
       <div class="form-group">
         <?php echo "<div id='img_div'><img src='../admin/image/".$_SESSION['usr']['img']."' width=100px;height=100px;></div>";?>
-        <label>Upload Image</label>
-        <input type="file" accept=".jpg,.png" name="adimg" id="adimg" class="form-control"  required="">
+        <label for="adimg">Upload Image</label>
+        <input type="file" accept=".jpg,.png" name="adimg" id="adimg" class="form-control" required=""/>
       </div>
       <a href="index.php" class="btn btn-danger">CANCEL</a>
       <form action="usrupd.php" method="post">

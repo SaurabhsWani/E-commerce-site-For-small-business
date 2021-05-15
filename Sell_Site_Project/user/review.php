@@ -1,9 +1,8 @@
 <?php
 include('header.php');
 include('navbar.php');
-?>
+?><br><br>
 <div class="page-inner mt--5">
-	<br><br>
 	<?php
 	if (isset($_SESSION['Success'])&&$_SESSION['Success']!='') {
 		echo '<h2 class="bg-primary text-white">'.$_SESSION['Success'].'</h2>';
@@ -18,7 +17,7 @@ include('navbar.php');
 		if($_POST['rev']=='' || $_POST['rate']=='NaN')
 		{
 			$_SESSION['Success']="Please Fill All the fields ";
-			header('Location: review.php');
+			echo "<script> window.location = 'review.php';</script>";
 		} 
 		else
 		{
@@ -27,23 +26,22 @@ include('navbar.php');
 			if(mysqli_query($connection,$sql))
 			{
 				$_SESSION['Success']="Your review Submitted ";
-				header("Location:review.php");
+				echo "<script> window.location = 'review.php';</script>";
 
 			}
 			else
 			{
 				$_SESSION['Status']="Your review Not Submitted ";
-				header('Location: review.php');
+				echo "<script> window.location = 'review.php';</script>";
 			}
 		}
 	}
 	?>
-	<form class="p-5 bg-warning" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-		<input type="hidden" name="id" value="<?php echo $_SESSION['bid'];?>">
+	<form class="p-5 col-md-8 ml-auto mr-auto bg-white" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		<input type="hidden" name="id" value="<?php echo intval($_SESSION['usr']['bid']);?>">
 		<div class="form-group">
 			<label for="comment">Write about our product </label>
-			<textarea class="form-control" name="rev" id="comment" rows="5" require="">
-			</textarea>
+			<textarea class="form-control" name="rev" id="comment" rows="5" require="" placeholder="Enter Something About Us"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="comment">Rate Us Out-Of-100</label>

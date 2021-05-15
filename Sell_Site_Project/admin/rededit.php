@@ -36,6 +36,7 @@ include('includes/header.php');
             <img id="chnge" src='#' onerror="this.onerror=null;this.src='image/blk.jpg'" width=130px;height=10px;/>
             <img id='blah' src='#' onerror="this.onerror=null;this.src='image/blk.jpg'" width=0px;height=0px;/>
           </div>
+          <label for='adimg'>Update image</label>
           <input type="file" name="adimg" id="adimg" class="form-control" required="" onchange="readURL(this);"/>
         </div>
         <button type="submit" class="btn btn-primary" name="Update" value="AdmPic">Update Profile Photo</button>

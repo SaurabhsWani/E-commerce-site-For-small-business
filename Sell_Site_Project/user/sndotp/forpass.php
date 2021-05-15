@@ -31,8 +31,7 @@ include('security.php');
 			<span></span>
 			<span></span>
 			<h2>Gopa Aata</h2>
-			<p >name:&emsp; ".$row['First_Name']."</p>";
-			echo "<p>surname:&emsp;&emsp;".$row['Last_Name']."</p>";
+			<p >name:&emsp; ".$row['Name']."</p>";
 			echo "<p>mobile no.:&emsp;".$row['Mobile']."</p>";
 			echo "<form action=barwas method=post>";
 			echo "<p>new password:&emsp;&emsp;&emsp;<input type=password name=pd required></p>";

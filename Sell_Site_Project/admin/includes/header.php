@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <link rel="icon" href="image/favicon.png" type="image/x-icon"/>
   <title>Admin</title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -165,7 +165,7 @@
                     <ul class="navbar-nav ml-auto">
                       <!-- Nav Item - User Information -->
                       <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link text-gray-200" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Review&emsp;  
+                        <a class="nav-link text-gray-900 btn-success" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-file"></i>&emsp;Review&emsp;  
                           <?php
                           $query = "SELECT * from `review` where `status` = 'unread' order by `DATE` DESC";
                           if(count(fetchAll($query))>0){
@@ -190,17 +190,15 @@
                                   echo "font-weight:bold;";
                                 }
                                 ?>
-                                " class="dropdown-item" name="btn" >
-                                <small><i><?php echo date('F j, Y, g:i a',strtotime($i['DATE'])) ?></i></small><br/>
+                                " class="dropdown-item" name="btn" ><i class="fas fa-file"></i>
+                                <small><?php echo date('F j, Y, g:i a',strtotime($i['DATE'])) ?></small><br/>
                                 <?php 
                                 echo "New Review Recived.";?>
                               </button>
                             </form>
-                            <div class="dropdown-divider"></div>
                             <?php
                           }
-                        }
-                        echo "No Further Review yet.";             
+                        }       
                       }
                       else{
                        echo "No Further Review yet.";
@@ -209,7 +207,7 @@
                    </div>
                  </li>
                  <li class="nav-item dropdown no-arrow">
-                  <a class="nav-link text-gray-200" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications&emsp;  
+                  <a class="nav-link text-gray-900 btn-warning" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i>&emsp;Notifications&emsp;  
                     <?php
                     $query = "SELECT * from `distributer` where `status` = 'unread' order by `DATE` DESC";
                     if(count(fetchAll($query))>0){
@@ -233,18 +231,15 @@
                           if($i['status']=='unread'){
                             echo "font-weight:bold;";
                           }
-                          ?>
-                          " class="dropdown-item" name="btn" >
-                          <small><i><?php echo date('F j, Y, g:i a',strtotime($i['DATE'])) ?></i></small><br/>
+                          ?>" class="dropdown-item" name="btn" ><i class="fas fa-bell"></i>
+                          <small><?php echo date('F j, Y, g:i a',strtotime($i['DATE'])) ?></small><br/>
                           <?php 
-                          echo "New Contact Recived.";?>
+                          echo "New Query Recived.";?>
                         </button>
                       </form>
-                      <div class="dropdown-divider"></div>
                       <?php
                     }
-                  }
-                  echo "No Further Notification yet.";             
+                  }       
                 }
                 else{
                  echo "No Further Notification yet.";

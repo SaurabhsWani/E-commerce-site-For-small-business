@@ -174,6 +174,13 @@ require('../admin/functions.php');
 								<!-- <span class="caret"></span> -->
 							</a>
 						</li>
+						<li class="nav-item ">
+							<a  href="review.php" >
+								<i class="fas fa-file"></i>
+								<p>review</p>
+								<!-- <span class="caret"></span> -->
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>

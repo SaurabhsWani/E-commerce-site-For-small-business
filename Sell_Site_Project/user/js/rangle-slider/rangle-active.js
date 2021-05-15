@@ -77,7 +77,7 @@
 					value: initialYear,
 					range: "min",
 					min: 1950,
-					max: 2020,
+					max: 2028,
 					step: 1,
 					create: yearTooltip,
 					slide: yearTooltip
@@ -138,14 +138,4 @@
 					$("#slider3").slider("value") 
 				);
 				
-				
-	
-		
-            
-			
-
-		
-
-	
- 
 })(jQuery); 

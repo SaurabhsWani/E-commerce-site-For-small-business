@@ -2,13 +2,13 @@
 include('security.php');
 if($_POST['eml']== NULL)
 {
-  	echo '<script>window.location="asdfg"</script>';
+	echo '<script>window.location="asdfg"</script>';
 }
 $eml=$_POST['eml'];
 $query="SELECT * FROM b_person WHERE Email='$eml'";
 $record=mysqli_query($connection,$query);
 	if ($record) 
-	{							
+	{ 
 		$result=mysqli_query($connection,$query);
 		$idd=mysqli_fetch_array($result);
 		$_SESSION['id']=$idd['bid'];
@@ -20,7 +20,7 @@ $record=mysqli_query($connection,$query);
 		$body="\r\nOTP to reset password is ".$x."\r\n Do NOt reply to this email";
 		if (mail($_SESSION['email'],$subject,$body,$headers)) 
 		{
-			//echo "<script>alert(' $x ');</script>";
+			echo "<script>alert(' $x ');</script>";
 			echo "<script>alert('Please Check your email to see otp');</script>";
 			echo '<script>window.location="zxcvb"</script>';
 		}

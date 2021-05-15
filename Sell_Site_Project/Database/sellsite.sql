@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2021 at 10:14 AM
+-- Generation Time: May 15, 2021 at 02:21 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -41,8 +41,8 @@ CREATE TABLE `aboutus` (
 --
 
 INSERT INTO `aboutus` (`title`, `subtitle`, `content`, `id`, `image`) VALUES
-('Sell Site', 'JAWAR ATTA', 'Since childhood days, I used to see my father working in the jawar fields. He struggled very hard to sell the product in the market. Our net income was very less and survival was very difficult. All the problems which our family was experiencing motivated me to build a successful jawar atta company.Our company supplies jawar atta to dealers and retailers who sell it to end customers. The end users can purchase atta from our website in wholesale rates. Home delivery service is also provided.our aim is to provide best services', 5, 'IMG-20200816-WA0006[1].jpg'),
-(' About SORGHUM', 'Short Information', 'SORGHUM !!\r\nScientific name: Sorghum bicolor (L.) Moench !\r\nHindi name: Jowar !\r\nMarathi: Jwari !\r\nTelugu name: Jonnalu \r\n\r\n-Sorghum is traditional staple food of the dry land regions of the world, a warm season crop intolerant to low temperatures, resistant to pests and diseases highly nutritious and a \r\n climate-compliant crop.\r\n-It ranks fifth in cereals produced world-wide and fourth in India. Generally, sorghum grains act as a principal source of protein, vitamins, energy and minerals  for millions of people especially in the semi-arid regions playing a crucial role in the world’s food economy. It has a nutritional profile better than rice which is the staple food of majority of the human population for its rich protein, fibre thiamine, riboflavin, folic acid, calcium, phosphorous, iron and ?-carotene.\r\n-Sorghum is rich in potassium, phosphorus and calcium with sufficient amounts of iron, zinc and sodium. Due to this, it is being targeted as a means to reduce malnutrition globally. It helps to control heart problems, obesity and arthritis.\r\n', 6, 'wallpaperflare.com_wallpaper.jpg');
+('Sell Site', 'Our Secure Service', 'Since childhood days, I used to see my father working in the jawar fields. He struggled very hard to sell the product in the market. Our net income was very less and survival was very difficult. All the problems which our family was experiencing motivated me to build a successful jawar atta company.Our company supplies jawar atta to dealers and retailers who sell it to end customers. The end users can purchase atta from our website in wholesale rates. Home delivery service is also provided.our aim is to provide best services', 5, 'prd1.jfif'),
+(' About products', 'Short Information', 'SORGHUM !!\r\nScientific name: Sorghum bicolor (L.) Moench !\r\nHindi name: Jowar !\r\nMarathi: Jwari !\r\nTelugu name: Jonnalu \r\n\r\n-Sorghum is traditional staple food of the dry land regions of the world, a warm season crop intolerant to low temperatures, resistant to pests and diseases highly nutritious and a \r\n climate-compliant crop.\r\n-It ranks fifth in cereals produced world-wide and fourth in India. Generally, sorghum grains act as a principal source of protein, vitamins, energy and minerals  for millions of people especially in the semi-arid regions playing a crucial role in the world’s food economy. It has a nutritional profile better than rice which is the staple food of majority of the human population for its rich protein, fibre thiamine, riboflavin, folic acid, calcium, phosphorous, iron and ?-carotene.\r\n-Sorghum is rich in potassium, phosphorus and calcium with sufficient amounts of iron, zinc and sodium. Due to this, it is being targeted as a means to reduce malnutrition globally. It helps to control heart problems, obesity and arthritis.\r\n', 6, 'prd2.jfif');
 
 -- --------------------------------------------------------
 
@@ -88,11 +88,13 @@ CREATE TABLE `b_person` (
 --
 
 INSERT INTO `b_person` (`bid`, `Name`, `Email`, `Mobile`, `Password`, `Adhaar`, `image`) VALUES
-(8, 'Ram', 'cr5423@gmail.com', 9404341181, 'ram', 456732156709, 'avatar04.png'),
+(0, 'Unknown', '', 0, '', 0, ''),
+(8, 'Ram', 'cr5423@gmail.com', 9404341181, 'ram', 456732156709, 'avatar5.png'),
 (9, 'shreyas', 'smfegade2799@gmail.com', 9404341181, 'shreyas', 567890876543, 'avatar5.png'),
 (12, 'rajesh patil', 'admin@admin.com', 9513576248, 'asdf', 123456789122, 'avatar2.png'),
 (15, 'ramesh malode', 'ram2@gmail.com', 9513576248, 'asdf', 123456789745, 'avatar04.png'),
-(23, 'saurabh wani', 'saurabh123@gmail.com', 9513576248, 'asdf', 123456789745, 'avatar5.png');
+(23, 'saurabh wani', 'r123@gmail.com', 9513576248, 'asdf', 123456789745, 'avatar5.png'),
+(24, 'Radhika Badgujar', 'er.saurabhwani1@gmail.com', 1234567890, 'asdf', 123456789123, 'avatar5.png');
 
 -- --------------------------------------------------------
 
@@ -115,12 +117,12 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `image`, `pname`, `price`, `name`, `noofpr`, `costprice`) VALUES
-(5, 'about-img.jpg', '1', 40, 'Atta', 490, 30),
-(8, 'aid10155888-v4-728px-Make-Jowar-Roti-Step-2.jpg.jpg', '1 kG', 101, 'rice', 487, 90),
-(9, '6.jpg', '1 kG', 50, 'jwari', 495, 30),
-(10, '5.jpg', '250 G', 100, 'Bhakri', 496, 80),
-(11, 'biscuits.jpg', '250 G', 100, 'Biscuit', 499, 85),
-(12, '7.jpg', '2Kg', 90, 'Gahu', 497, 70);
+(5, 'prd1.jfif', '1', 40, 'HeadPhones', 488, 30),
+(8, 'prd2.jfif', '1', 101, 'Watch', 484, 90),
+(9, 'prd3.jfif', '1', 50, 'Shoes', 495, 30),
+(10, 'prd4.jfif', '12', 100, 'Glass', 496, 80),
+(11, 'prd5.jfif', '1', 100, 'Car', 497, 85),
+(12, 'prd6.jpeg', '1', 90, 'Camera', 497, 70);
 
 -- --------------------------------------------------------
 
@@ -159,6 +161,17 @@ CREATE TABLE `distributer` (
   `DATE` datetime NOT NULL,
   `status` text CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `distributer`
+--
+
+INSERT INTO `distributer` (`id`, `name`, `email`, `mobile`, `msg`, `DATE`, `status`) VALUES
+(8, 'Saurabh Wani', 'saurabhwani256@gmail.com', 1234567890, 'I want to buy some product in a huge quantity for my local shop. help me to buy.', '2021-05-11 06:03:17', 'unread'),
+(9, 'Saurabh Wani', 'saurabhwani256@gmail.com', 1234567890, 'I want to buy some product in a huge quantity for my local shop. help me to buy.', '0000-00-00 00:00:00', 'unread'),
+(10, 'Saurabh Wani', 'saurabhwani256@gmail.com', 1234567890, 'I want to buy some product in a huge quantity for my local shop. help me to buy.', '0000-00-00 00:00:00', 'unread'),
+(11, 'Saurabh Wani', 'er.saurabhwani1@gmail.com', 1234567890, 'I want to buy some product in a huge quantity for my local shop. help me to buy.', '0000-00-00 00:00:00', 'unread'),
+(12, 'Saurabh Wani', 'er.saurabhwani1@gmail.com', 1234567890, 'I want to buy some product in a huge quantity for my local shop. help me to buy.', '0000-00-00 00:00:00', 'unread');
 
 -- --------------------------------------------------------
 
@@ -204,21 +217,11 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`image`, `id`) VALUES
-('avatar3.png', 24),
-('aid10155888-v4-728px-Make-Jowar-Roti-Step-2.jpg.jpg', 26),
-('download (1).jpg', 27),
-('jowar-roti-recipe15.jpg', 29),
-('slider-03.jpg', 30),
-('images (3).jpg', 31),
-('images (4).jpg', 32),
-('images (1).jpg', 34),
-('1.jpg', 35),
-('3.jpg', 36),
-('jawar3.jpg', 37),
-('images (10).jpg', 39),
-('images (7).jpg', 40),
-('2.jpg', 44),
-('jawar5.jpg', 47);
+('prd1.jfif', 24),
+('prd2.jfif', 26),
+('prd3.jfif', 27),
+('prd4.jfif', 29),
+('prd5.jfif', 30);
 
 -- --------------------------------------------------------
 
@@ -241,7 +244,7 @@ CREATE TABLE `nav` (
 --
 
 INSERT INTO `nav` (`id`, `image`, `h1`, `h3`, `h4`, `h5`, `h6`) VALUES
-(1, 'veg.png', 'Homee', 'Loginn', 'About uss', 'Galleryy', 'Contactt');
+(1, 'favicon.png', 'Home', 'User Login', 'About Us', 'Gallery', 'Contact');
 
 -- --------------------------------------------------------
 
@@ -283,19 +286,15 @@ CREATE TABLE `prdanalysis` (
 --
 
 INSERT INTO `prdanalysis` (`prdname`, `month`, `itmcount`, `srid`, `prdid`, `pricepermonth`) VALUES
-('rice', 'Mar/2021', 15, 1, 8, 90),
-('rice', 'Aprl/2021', 5, 4, 8, 92),
-('rice', 'May/2021', 12, 5, 8, 93),
-('jwari', 'Aprl/2021', 4, 6, 9, 97),
-('jwari', 'May/2021', 10, 7, 9, 99),
-('jwari', 'Jun/2021', 10, 8, 9, 104),
-('rice', 'Mar/2021', 2, 9, 8, 89),
-('Atta', 'Mar/2021', 3, 12, 5, 40),
-('Gahu', 'May/2021', 2, 13, 12, 90),
-('Atta', 'May/2021', 1, 14, 5, 40),
-('Atta', 'Apr/2021', 1, 15, 5, 40),
-('Gahu', 'Apr/2021', 1, 16, 12, 90),
-('Biscuit', 'Apr/2021', 1, 17, 11, 100);
+('Watch', 'Jan/2021', 15, 1, 8, 90),
+('Watch', 'Feb/2021', 2, 3, 8, 89),
+('Watch', 'Mar/2021', 5, 4, 8, 92),
+('Shoes', 'Jan/2021', 4, 6, 9, 97),
+('HeadPhones', 'Jan/2021', 3, 12, 5, 40),
+('HeadPhones', 'Feb/2021', 1, 15, 5, 40),
+('Camera', 'Jan/2021', 1, 16, 12, 90),
+('Car', 'Jan/2021', 1, 17, 11, 100),
+('HeadPhones', 'May/2021', 1, 20, 5, 40);
 
 -- --------------------------------------------------------
 
@@ -317,12 +316,8 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`id`, `review`, `rate`, `status`, `DATE`, `display`) VALUES
-(4, '			', 93, 'read', '2011-01-12 01:44:49', 'yes'),
-(2, 'checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not checking the form is working or not 			', 98, 'read', '2011-01-12 02:57:27', 'no'),
-(7, '		gopa atta is pure and fresh product .it gives taste of essence\r\n', 90, 'read', '2020-04-07 15:04:46', 'no'),
-(8, '			i like this product very much .', 95, 'read', '2020-04-07 15:05:51', 'no'),
-(7, 'This is very good product.', 90, 'read', '2020-09-12 18:57:57', 'no'),
-(7, 'nice prodt', 98, 'read', '2020-09-20 13:46:00', 'no');
+(8, 'final review', 100, 'read', '2021-05-29 05:55:37', 'yes'),
+(8, 'NO REVIEW', 100, 'unread', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -342,8 +337,9 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`image`, `h1`, `h2`, `id`) VALUES
-('arrow.jpg', 'Home', 'Admin Login', 21),
-('arrow.jpg', 'hello', 'jaude sod', 22);
+('prd1.jfif', 'Selling Site', 'Get Started', 21),
+('prd5.jfif', 'India\'s Best selling site', 'Search for product', 22),
+('prd4.jfif', 'Welcome to Sell Site', 'Get Exiting offer on each product', 23);
 
 -- --------------------------------------------------------
 
@@ -363,7 +359,8 @@ CREATE TABLE `wishcartbuy` (
 --
 
 INSERT INTO `wishcartbuy` (`wish`, `cart`, `buy`, `id`) VALUES
-('a:1:{i:0;i:5;}', 'a:1:{i:0;i:5;}', 'a:0:{}', 23);
+('a:2:{i:0;i:5;i:1;i:9;}', 'a:1:{i:0;i:5;}', 'a:0:{}', 23),
+('a:3:{i:0;i:5;i:1;i:9;i:2;i:12;}', 'a:4:{i:0;i:5;i:1;i:8;i:2;i:10;i:3;i:11;}', 'a:0:{}', 24);
 
 --
 -- Indexes for dumped tables
@@ -468,7 +465,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `b_person`
 --
 ALTER TABLE `b_person`
-  MODIFY `bid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `bid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -486,7 +483,7 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `distributer`
 --
 ALTER TABLE `distributer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `footer`
@@ -516,13 +513,13 @@ ALTER TABLE `nupd`
 -- AUTO_INCREMENT for table `prdanalysis`
 --
 ALTER TABLE `prdanalysis`
-  MODIFY `srid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `srid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
